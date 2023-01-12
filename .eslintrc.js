@@ -1,3 +1,5 @@
-module.exports = {
-    extends: "@cybozu/eslint-config/presets/node-typescript-prettier",
+/** @type {import('eslint/lib/shared/types').ConfigData} */
+const config = {
+  extends: "@cybozu/eslint-config/presets/node-prettier",
 };
+module.exports = config;

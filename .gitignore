@@ -13,6 +13,9 @@ yarn-error.log*
 # testing
 coverage/
 
+# artifacts
+dist/
+
 # misc
 **/.DS_Store
 **/.vs

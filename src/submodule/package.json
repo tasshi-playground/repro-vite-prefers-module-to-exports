@@ -1,0 +1,15 @@
+{
+  "name": "submodule-repro-vite-prefers-module-to-exports",
+  "version": "1.0.0",
+  "exports": {
+    "import": "./lib/index.mjs",
+    "require": "./lib/index.cjs"
+  },
+  "type": "module",
+  "module": "./lib/old.mjs",
+  "main": "./lib/index.cjs",
+  "private": "true",
+  "files": [
+    "lib"
+  ]
+}
