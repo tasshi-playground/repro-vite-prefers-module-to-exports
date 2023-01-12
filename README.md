@@ -1,6 +1,6 @@
 # repro-vite-prefers-module-to-exports
 
-minimal reproduction of \_ .
+minimal reproduction of https://github.com/vitejs/vite/issues/11676 .
 
 ## Summary
 
@@ -54,7 +54,7 @@ That's because the file specified in `module` field is loaded. (`old.mjs`).
 (To make it easier to understand the impact, the `./lib/old.mjs` is a deprecated file, and the interface is different from `./lib/index.mjs`.)
 
 ```shell
-$ vite build        
+$ vite build
 vite v4.0.4 building for production...
 ✓ 2 modules transformed.
 "default" is not exported by "src/submodule/lib/old.mjs", imported by "src/index.mjs".
@@ -62,7 +62,7 @@ file: /Users/tasshi/git/mshrtsr/repro-vite-prefers-module-to-exports/src/index.m
 1: // eslint-disable-next-line node/no-extraneous-import
 2: import submodule from "submodule-repro-vite-prefers-module-to-exports";
           ^
-3: 
+3:
 4: console.log("Loaded file is:", submodule);
 error during build:
 RollupError: "default" is not exported by "src/submodule/lib/old.mjs", imported by "src/index.mjs".
@@ -85,7 +85,7 @@ I have not identified yet, but I think the cause is in the module resolving of V
 When I original entrypoint file with Node.js, Node.js picks the file specified in `exports` correctly.
 
 ```shell
-$ node src/index.js 
+$ node src/index.js
 Loaded file is: index.cjs (CJS)
 ```
 
