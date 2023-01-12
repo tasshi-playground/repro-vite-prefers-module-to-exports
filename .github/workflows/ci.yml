@@ -1,0 +1,37 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nodenv/actions/node-version@main
+        id: nodenv
+      - name: Use Node.js ${{ steps.nodenv.outputs.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: "${{ steps.nodenv.outputs.node-version }}"
+      - name: yarn install, and yarn lint
+        run: |
+          yarn install
+          yarn lint
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nodenv/actions/node-version@main
+        id: nodenv
+      - name: Use Node.js ${{ steps.nodenv.outputs.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: "${{ steps.nodenv.outputs.node-version }}"
+      - name: yarn install, and yarn lint
+        run: |
+          yarn install
+          yarn test
