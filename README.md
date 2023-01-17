@@ -1,3 +1,8 @@
+# Archived
+
+The original issue was closed because it duplicated https://github.com/vitejs/vite/issues/11114.  
+It has been fixed on https://github.com/vitejs/vite/pull/11595 and will be released on 4.1.
+
 # repro-vite-prefers-module-to-exports
 
 minimal reproduction of https://github.com/vitejs/vite/issues/11676 .
